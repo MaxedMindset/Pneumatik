@@ -1,0 +1,209 @@
+%Do not touch. (document structure)
+\documentclass[a4paper, 12pt]{article}
+\input{settings/packages}
+
+% overleaf specific
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/] % tmp folder for plots (fast)
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%Fill your information blow%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\labgroup{A1}
+\newcommand\firstauthorname{Vorname1 Nachname1}
+\newcommand\firstauthormatnr{000000}
+\newcommand\secondauthorname{Vorname2 Nachname2}
+\newcommand\secondauthormatnr{000001}
+\newcommand\thirdauthorname{Vorname3 Nachname3}
+\newcommand\thirdauthormatnr{000002}
+
+% load titlepage
+\input{settings/title}
+\newpage
+
+% table of content
+\tableofcontents
+\newpage
+
+\section{Allgemeines}
+Dieses Dokument soll nur einen kleinen Überblick über die Sachen geben, die eingehalten werden sollten. Es können selbstverständlich auch eigene Dokumente verwendet werden. In welchem Programm das Dokument angelegt wird, ist an sich nebensächlich. Überall lassen sich aber die Punkte, die hier angesprochen werden, umsetzen.
+
+\textbf{Bitte beachtet deshalb die folgenden Punkte, da ansonsten Punkte abgezogen werden:}
+\begin{enumerate}
+    \item Füllen Sie das Deckblatt vollständig aus. Alle Gruppenmitglieder müssen mit Namen und Matrikelnummer erwähnt sein. Das vorgegebene Layout ist keine Pflicht beinhaltet aber die Sachen, die wichtig sind.
+\end{enumerate}
+
+Wichtige Punkte:
+\begin{itemize}
+    \item Seiten nummerieren,
+    \item auf durchgängige Schriftarten, Schriftgrößen und Formatierungen achten,
+    \item insgesamt auf ein konsistentes Layout achten,
+    \item Abbildungen, Gleichungen, Tabellen, Grafiken etc. grundsätzlich erklären und beides zusammen möglichst auf einer Seite platzieren, um unnötiges Blättern zu vermeiden (wenn möglich),
+    \item keine schwarzen Hintergründe, keine abfotografierten Graphen und keine unleserlichen bzw. unscharfen Screenshots und Fotos verwenden,
+    \item idealerweise auf Vektorformate setzen wie: SVG, EPS, PDF für Illustrationen, Texte und Plots
+    \item Blocksatz verwenden,
+    \item sinnvolle Kapitelnummerierungen! Es kann kein Abschnitt 1.2.1 geben wenn es kein weiteres 1.2.2 gibt etc. (siehe beispielsweise Kapitel~\ref{sec:struktur}).
+\end{itemize}
+
+\newpage
+\section{Strukturierung der Kapitel} \label{sec:struktur}
+Hier Text
+\subsection{Unterkapitel}
+Hier Text
+\subsection{Weiteres Unterkapitel}
+Hier Text
+\subsubsection{Weitere Unterteilung 1}
+Hier Text
+\subsubsection{Weitere Unterteilung 2}
+Hier Text
+
+\newpage
+\section{Text}
+Der Text sollte konsequent entweder in deutscher oder englischer Sprache verfasst werden. Auf eine Mischung sollte verzichtet werden. Es ist auch zweckdienlich Absätze einzufügen, die allerdings auch sinnvolle Länge umfassen sollten. In \LaTeX ~kann der Absatz mit einem \verb|ENTER| gesetzt werden. Hier ein Beispiel:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\section{Abbildungen}
+Alle eingefügten Abbildungen sollten im Text zitiert/erklärt wurden. Eine Referenzierung kann so aussehen: Abbildung \ref{fig:pressure_plot}. Abbildungsunterschriften müssen unter den Abbildungen stehen. Die Abbildungsunterschrift muss die Abbildung so erklären, dass das Wesentliche nur durch diese Unterschrift verständlich ist.
+
+So kann ein Katzenbild (Abbildung: \ref{fig:cat0}) aussehen. Es ist aber auch möglich mehrere Katzen zu haben (Abbildung \ref{fig:testfig}).
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5cm]{images/cat0.jpeg}
+    \caption{Das ist eine Katze}
+    \label{fig:cat0}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/cat0.jpeg}
+        \caption{}
+        \label{fig:cat0_0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/cat1.jpeg}
+        \caption{}
+        \label{fig:cat1_0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/cat2.jpeg}
+        \caption{}
+        \label{fig:cat2_0}
+    \end{subfigure}
+    \caption[Katzen Bilder]{Links (\ref{fig:cat0_0}) ist eine Katze; mittig ist ebenfalls eine Katze (\ref{fig:cat1_0}); rechts ist es auch eine Katze (\ref{fig:cat2_0})}
+    \label{fig:testfig}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \input{data/pressure_trajectory}
+    \caption{Druckverlauf eines Prüfvolumens}
+    \label{fig:pressure_plot}
+\end{figure}
+
+Eine äquivalente Darstellung kann mit Plotten von CSV Dateien erzielt werden. Die CSV Datei befinden sich im Ordner \verb|./data|. Es werden in einer CSV Datei hier beispielsweise direkt alle Signale gespeichert. Die erste Spalte ist die Zeit, die beiden anderen die dazugehörigen Signale (Abbildung \ref{fig:csv_plot}). Achtet immer auf die Anzahl an Punkten die ihr plottet. In diesem Plot werden 1000 Punkte auf der x-Achse dargestellt. Dieses ist schon vollkommen ausreichend. Vermeidet also Plots mit sehr vielen Datenpunkten, da dies nur sehr viel Darstellungsperformanz kostet, aber keinen optischen Mehrwert bietet. Manchmal erkennt pgfplot nicht, dass sich die CSV Datei geändert hat und kompiliert die Grafik nicht neu. In diesem Fall kann der Inhalt aus dem Ordner \verb|./tikz| gelöscht werden. Dann wird die Grafik zwangsläufig neu erstellt. Der Ordner \verb|./tikz| wird angelegt, um die gezeichneten Grafiken dort abzulegen ohne sie jedes mal neu zu erstellen. Das spart Zeit beim Erstellen des Dokuments. In der Präambel \verb|\input{settings/packages}| findet ihr den Code zum Einbinden von pgfplot.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			grid=both,
+			width=12cm,
+			height=5cm,
+			xlabel={Zeit $[\SI{}{s}]$}]
+			\addplot[black!30] table [x index = {0}, y index = {1}]{data/example_data.csv};
+			\addplot[black!90] table [x index = {0}, y index = {2}]{data/example_data.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Direkter Plot von CSV Dateien}
+	\label{fig:csv_plot}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \node[anchor=north west,inner sep=0] at (0,0) {\includegraphics[scale=1.0]{./images/control_structure.pdf}};
+        \draw (4.5mm, -17.48mm) node {$\varphi_\text{ref}$};
+        \draw (34.7mm, -5.48mm) node[text width=3cm, text centered] {Vorsteuerung};
+        \draw (34.7mm, -20.48mm) node[text width=3cm, text centered] {Regler};
+        \draw (60mm, -17.48mm) node {$u$};
+        \draw (95.52mm, -17.48mm) node {$\varphi, \dot{\varphi}$};
+        \draw (75.52mm, -20.48mm) node {\textcolor{gray}{\textbf{System}}};
+    \end{tikzpicture}
+    \caption{Reglerstruktur}
+    \label{fig:controlsystem}
+\end{figure}
+
+Folgendes sollte bei Abbildungen beachtet werden:
+\begin{itemize}
+    \item Alle Achsen beschriften
+    \item Für Achsenbeschriftungen folgendes Format verwenden, z.B.: Zeit $[\SI{}{s}]$
+    \item Gitternetzlinien in jedem Graphen für eine bessere Lesbarkeit verwenden
+    \item Alle Texte in den Abbildungen müssen lesbar sein
+    \item Bei mehr als 2 darzustellenden Kurven Legenden verwenden
+    \item Gleiche Farben für gleiche Signale verwenden
+    \item Für unterschiedliche Signale unterschiedliche Linientypen und Farben verwenden (kein Muss!)
+    \item Bei Pixelgrafiken gilt: auf zu große Auflösungen ($\SI{>2000}{px}$ in der Breite) sollte verzichtet werden. Diese bringen keinen optischen Mehrwert und kostet stattdessen nur Performanz
+\end{itemize}
+
+
+\subsection{Gleichungen und Zahlen}
+Zahlen können folgendermaßen angegeben werden: $l=\SI{1}{m}$. Es lässt sich praktisch jedes wünschenswertes Ergebnis erzielen: $q=\SI{100}{l/min}$. Gleichungen werden zentriert und fortlaufend nummeriert. Gleichungsnummern in runden Klammern, wie in \eqref{equ:linear_equ}, rechtsbündig positionieren. Gleichungen nicht im Programmierstiel sondern lesbar mit einem Formeleditor (in \LaTeX ~den Mathemodus verwenden) etc. darstellen. Variablen werden stets kursiv dargestellt und Indizes, Zahlenwerte und Einheiten nicht. Das ist eine Gleichung \
+
+\begin{equation} \label{equ:linear_equ}
+    y(t) = at+b.
+\end{equation}
+Punkt und Komma haben auch bei Gleichungen ihre Gültigkeit. Es gibt aber auch noch eine zweite Gleichung (\ref{equ:integral}).
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\begin{equation}\label{equ:integral}
+	\varphi = \int \dot{\varphi}  \diff t
+\end{equation}
+Es ist auch immer sauberer zwischen einer Variable $d$ und einem Differential $\diff$ zu unterscheiden. Das gilt beispielsweise in der Ableitung
+\begin{equation}\label{equ:diff}
+	f^{\prime} (x) = \frac{\diff f}{\diff x}.
+\end{equation}
+Gleichungen im Text referenzieren. Alle Größen und Einheiten in den Gleichungen im Text nennen und erklären, wie z.\,B. in (\ref{equ:linear_equ}) steht $a$ für die Steigung der Geraden, $t$ für die Laufvariable Zeit in $[\SI{}{s}]$, $b$ für die Verschiebung der Geraden auf der y-Achse.
+
+\subsection{Tabellen}
+Tabellenüberschriften stehen über den Tabellen. Tabellen einfügen, nachdem sie im Text zitiert wurden, wie siehe Tabelle \ref{tab:opt_controller}. Tabellen so formatieren, dass diese möglichst über die ganze Seitenbreite gehen und wenig Seitenlänge verbrauchen.
+
+
+\begin{table}[h]
+    \centering
+    \caption[Optimierte Regler-Parameter]{Optimierte Regler-Parameter für ausgewählte Arbeitspunktwinkel des Ellenbogengelenks}
+    \label{tab:opt_controller}
+    \begin{tabular}{llllll}
+        \toprule
+        Parameter  \textbackslash Winkel~$[^\circ]$ & $0$      & $30$     & $60$     & $90$     & $120$    \\
+        \midrule
+        P-Glied                                     & $1$      & $2$      & $5$      & $10$     & $20$     \\
+        D-Glied                                     & $0.0200$ & $0.0200$ & $0.0100$ & $0.0100$ & $0.0001$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Generelle Zielsetzung des Protokolls}
+In dem Protokoll soll mit Hilfe von Text, Abbildungen und Tabellen euer Vorgehen beim Bearbeiten der Aufgaben gezeigt werden. Allgemein müssen die Methode und Ergebnisse präsentiert bzw. diskutiert werden. Es ist also nicht notwendig jeden einzelnen Implementierungsschritt zu dokumentieren. Achtet auf den roten Faden. 
+
+
+
+\newpage
+\listoffigures
+\listoftables % wenn nötig
+\newpage
+\input{settings/endofdocument}
+\end{document}
+
+
+
